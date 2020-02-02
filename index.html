@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload="startTimer();">
+    <div>
+        <left>
+            <b>
+                <span id = "time" ></span>
+            </b>
+        </left>
+    </div>
+    
+    <script>
+    let timer = 60;
+    let min = 0;
+    let sec = 0;
+    function startTimer(){
+        min =parseInt(time/60);
+        sec = parseInt(timer%60);
+        if (timer<1){
+            
+        }
+        document.getElementById("time").innerHTML = "<b>Time Left: </b>" + min.toString() +":" + sec.toString();
+        timer--;
+        setTimeout(function(){
+            startTimer();
+        }, 1000);
+    }
+
+      let questions = [
+    {
+        prompt: "Where is our class?\n(a) USC\n(b) Stanford\n(c) UCLA",
+
+        answer: "c"
+    },
+    {
+        prompt: "What search engine does Zane use?\n(a) Google\n(b) DuckDuckGO\n(c) Ask Jeeves",
+
+        answer: "b"
+    },
+    {
+        prompt: "What are our original TAs named?\n(a) Corrado/Chad\n(b) Chad/Mike\n(c) Mike/Corrado",
+
+        answer: "a"
+    },
+    {
+        prompt: "What room is our class in?\n(a) 394\n(b) 111\n(c) A113",
+
+        answer: "b"
+    }
+]
+let score = 0;
+for (let i = 0; i < questions.length; i++){
+    let response = window.prompt(questions[i].prompt)
+    if (response === questions[i].answer){
+        score++;
+        alert("Correct")
+    }else {
+        alert("Wrong")
+    }
+    
+}
+alert("You got " + score + "/" + questions.length)
+
+
+        
+        
+        
+    </script>
+    
+</body>
+</html>
